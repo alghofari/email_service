@@ -49,6 +49,10 @@ def send_email_api(email_data: EmailSchema):
     send_email(email_data.email, email_data.subject, email_data.message)
     return {"message": "Email sent successfully"}
 
+@app.get('/')
+def main():
+    return "Hello World"
+
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app)
