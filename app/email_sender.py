@@ -4,8 +4,8 @@ from email.mime.text import MIMEText
 from app.config import settings
 
 class EmailSender:
-    def __init__(self, from_alias: str = "noreply-analytics@id.ey.com"):
-        self.from_alias = from_alias
+    def __init__(self):
+        self.from_alias = settings.EMAIL_ADDRESS_ALIAS
         self.server = settings.SMTP_SERVER
         self.port = settings.SMTP_PORT
         self.email_address = settings.EMAIL_ADDRESS
