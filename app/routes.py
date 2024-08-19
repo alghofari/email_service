@@ -19,7 +19,7 @@ def get_current_user(credentials: HTTPBasicCredentials = Depends(security)):
     authenticate(credentials)
     
 @router.get("/")
-def index(user: HTTPBasicCredentials = Depends(get_current_user)):
+def index():
     return {"message": "Hello, World!"}
 
 @router.post("/send-email/")
