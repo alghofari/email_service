@@ -28,7 +28,7 @@ def send_email_api(request: Request, email_data: EmailSchema, user: HTTPBasicCre
     email_sender = EmailSender()
     
     try:
-        email_sender.send_email(email_data.email, email_data.subject, email_data.message)
+        email_sender.send_email(email_data.to_email, email_data.subject, email_data.message, email_data.cc_email, email_data.bcc_email)
         return {"message": "Email sent successfully"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
