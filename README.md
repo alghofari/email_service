@@ -50,8 +50,8 @@ SMTP_PORT=587
 EMAIL_ADDRESS=your-email@gmail.com
 EMAIL_ADDRESS_ALIAS=your-email-alias@email.com
 EMAIL_PASSWORD=your-password
-API_USERNAME=admin
-API_PASSWORD=password
+API_USERNAME=your-api-username
+API_PASSWORD=your-api-password
 ```
 
 Replace the placeholders with your actual SMTP server details and API credentials.
@@ -88,7 +88,9 @@ Send an email with the provided email, subject, and message fields.
 
 ```json
 {
-  "email": "recipient@example.com",
+  "to_email": ["recipient@example.com", "recipient2@example.com"],
+  "cc_email": ["recipient@example.com", "recipient2@example.com"],
+  "bcc_email": ["recipient@example.com", "recipient2@example.com"],
   "subject": "Test Email",
   "message": "This is a test email sent from FastAPI."
 }
@@ -101,7 +103,9 @@ curl -X POST http://127.0.0.1:8000/send-email/ \
 -u user:password \
 -H "Content-Type: application/json" \
 -d '{
-  "email": "recipient@example.com",
+  "to_email": ["recipient@example.com", "recipient2@example.com"],
+  "cc_email": ["recipient@example.com", "recipient2@example.com"],
+  "bcc_email": ["recipient@example.com", "recipient2@example.com"],
   "subject": "Test Email",
   "message": "This is a test email sent from FastAPI."
 }'
